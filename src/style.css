@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+  Our application is full screen. Force the entire object to be full sized
+*/
+body {
+  margin: 0px;
+  height: 100vh;
+}
+
+/**
+  The root object is the main entry object into the application right below the body in the DOM
+	We're using a modern flexbox layout approach to allow for native responsive design
+*/
+#root {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+}
+
+/**
+  The main DOM object is a React standard to identify the content section of the appliation (no including navigation)
+*/
+main {
+  /*flex-grow: 1;*/
+  height: calc(100vh - 64px);
+}

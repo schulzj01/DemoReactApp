@@ -1,0 +1,38 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# Ignore Mac system files
+.DS_store
+Thumbs.db
+
+#Ignore Thumbnails
+._*
+
+# Ignore node_modules folder
+node_modules
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache
+
+#Ignore package-changed hash files
+.packagehash
+
+#Ignore VS Code project settings
+.vscode/
+
+#Ignore log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

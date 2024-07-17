@@ -1,0 +1,37 @@
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vitest/config';
+import path from 'path';
+
+//Define a few high level directory variables to be used in this config file
+const [src] = ['src'].map((dir) => path.resolve(__dirname, dir));
+
+export default defineConfig({
+  plugins: [react()],
+  //Open up our browser on development start
+  server: {
+    open: true,
+    port: 5173,
+    watch: {
+      usePolling: true,
+    },
+  },
+  //Set up some importing aliases to keep thing cleaner
+  resolve: {
+    alias: {
+      '@': src,
+      assets: path.resolve(__dirname, `${src}/assets`),
+      pages: path.resolve(__dirname, `${src}/pages`),
+      components: path.resolve(__dirname, `${src}/components`),
+      componentLibrary: path.resolve(__dirname, `${src}/componentLibrary`),
+      styles: path.resolve(__dirname, `${src}/styles`),
+      routes: path.resolve(__dirname, `${src}/routes`),
+      mocks: path.resolve(__dirname, `${src}/mocks`),
+    },
+  },
+  //Set up some test configuration parameters, and point to a global test setup file.
+  test: {
+    environment: 'jsdom',
+    css: true,
+    setupFiles: ['./test/vite.setup.ts'],
+  },
+});

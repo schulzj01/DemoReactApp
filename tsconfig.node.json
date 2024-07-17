@@ -1,0 +1,16 @@
+/**
+ *  Typescript specific settings when running the application in the node environment
+ *
+ */
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["vite.config.ts"]
+}
