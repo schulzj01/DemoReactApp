@@ -9,15 +9,17 @@ import { Email, Smartphone, Edit } from '@mui/icons-material';
 import 'leaflet/dist/leaflet.css';
 
 type Props = {
+  id: string;
   key: string;
   latitude: number;
   longitude: number;
   isSelected: boolean;
-  phoneNumbers: string[];
+  phoneNumbers: { phone: string }[];
   firstName: string;
   lastName: string;
   jobTitle: string;
   avatar: string;
+  organization: string;
 };
 
 const Item = styled(Paper)(({ theme }) => ({
