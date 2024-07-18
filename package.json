@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prestart": "package-changed",
+    "prestart": "package-changed || npm install",
     "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",

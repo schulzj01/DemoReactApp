@@ -4,7 +4,7 @@
 
 The first time the repo is cloned, you'll need to run an `npm install`.
 
-The install command will download all packages contained in package-lock.json to your local machine, and install into the current folder's node_module directory. Note this directory is also set to .gitignore to prevent packages being captured in the repository.
+The install command will download all packages contained in package.json to your local machine, and install into the current folder's node_module directory. Note this directory is also set to .gitignore to prevent packages being captured in the repository.
 
 This assumes you have npm/node.js installed to your local machine. You can [install node](https://nodejs.org/en/download) (if you have admin rights), or add [pre-built binaries](https://nodejs.org/en/download/prebuilt-binaries) to your user profile, and configure your environment variables if needed.
 
@@ -14,7 +14,7 @@ Currently Vite (pronounced Veet) is used for quick development. To run the appli
 
 `npm start`
 
-Upon start, any packages added since the last package change should be downloaded and installed. Your browser will then auto open to http://localhost:5173/
+Upon start, any packages added since the last package upate should be downloaded and installed automatically. Your browser will then auto open to http://localhost:5173/
 
 ## Building the Application
 
@@ -55,7 +55,7 @@ Code style should be consistent across team members. It's important that we all 
 
 ## UI Styling
 
-This application is set up with TailwindCSS as the styling mechanism.
+This application is set up with TailwindCSS as the styling mechanism, and React Aria as the components.  Note that the componentLibrary folder will eventually be moved into its own repo, and is only here for example purposes
 
 ## Code Documentation
 
@@ -71,6 +71,7 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 
 ### VS Code
 
+#### Recommended settings.json Properties
 ```json
 {
   "typescript.suggest.completeJSDocs": true,
@@ -94,7 +95,7 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 }
 ```
 
-#### Extensions
+#### Recommended Extensions
 
 - Prettier
 - IntelliCode
@@ -102,8 +103,9 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 - Tailwind Fold
 - Tailwind Documentation
 
+
 ### IntelliJ
 
-```json
-
+```
+¯\_(ツ)_/¯
 ```
