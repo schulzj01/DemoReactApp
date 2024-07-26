@@ -8,7 +8,7 @@ import { Email, Smartphone, Edit } from '@mui/icons-material';
 
 import 'leaflet/dist/leaflet.css';
 
-type Props = {
+export type MarkerProps = {
   id: string;
   key: string;
   latitude: number;
@@ -30,7 +30,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobTitle, phoneNumbers, avatar, organization }: Props) {
+function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobTitle, phoneNumbers, avatar, organization }: MarkerProps) {
   //  Create the Icon
 
   const blueIcon = new L.Icon({

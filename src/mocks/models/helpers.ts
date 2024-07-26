@@ -12,7 +12,7 @@
  * @param odds - The 1 out of "odds" that you want randomized. For example, "10" would be a 1 out of 10 chance of null values.
  * @returns
  */
-export function addRandomNulls(value: string | number, odds: number) {
+export function addRandomNulls<T>(value: T, odds: number): T | null {
   if (Math.floor(Math.random() * odds) !== 0) return value;
   return null;
 }

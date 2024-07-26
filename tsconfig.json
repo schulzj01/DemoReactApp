@@ -32,7 +32,8 @@
       "components/*": ["./src/components/*"],
       "pages/*": ["./src/pages/*"],
       "routes/*": ["./src/routes/*"],
-      "mocks/*": ["./src/mocks/*"]
+      "mocks/*": ["./src/mocks/*"],
+      "types/*": ["./src/types/*"]
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }]

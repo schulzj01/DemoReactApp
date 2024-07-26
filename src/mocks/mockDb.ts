@@ -1,6 +1,6 @@
 import { factory } from '@mswjs/data';
-import { PersonModel } from './models/Person';
+import { PersonMockModel } from './models/PersonMockModel';
 
 export const mockDb = factory({
-  person: PersonModel,
+  person: PersonMockModel,
 });

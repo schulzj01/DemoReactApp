@@ -1,5 +1,11 @@
+/**
+ *
+ * An example page to show how to fetch data from an api and populate it in a list
+ *
+ */
+
 import { useEffect, useState } from 'react';
-import { type Person } from 'mocks/models/Person.ts';
+import { type Person } from 'types/Person';
 
 const FetchData = () => {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -19,7 +25,7 @@ const FetchData = () => {
   }
 
   return (
-    <>
+    <div className='m-4'>
       <ul>
         {persons?.map((person) => {
           return (
@@ -29,7 +35,7 @@ const FetchData = () => {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
 

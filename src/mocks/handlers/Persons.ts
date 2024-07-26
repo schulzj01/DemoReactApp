@@ -1,8 +1,6 @@
 import { http, HttpHandler, HttpResponse } from 'msw';
-//import { STUDENTS_LIST_ROUTE_MASK } from '../mocks.constants';
 import { mockDb } from 'mocks/mockDb';
 
-//import { type Person } from 'mocks/models/Person.ts';
 
 /**
  * How many persons to create in the mock data
@@ -25,7 +23,6 @@ const Persons: HttpHandler = http.get('/api/persons', () => {
   for (let i = 0; i < numPersons; i += 1) {
     persons.push(mockDb.person.create());
   }
-  //  let persons = [...Array(num).fill(null)].map(() => PersonModel);
   return HttpResponse.json(persons);
 });
 

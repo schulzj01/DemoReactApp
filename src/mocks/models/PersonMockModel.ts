@@ -1,36 +1,32 @@
 import { faker } from '@faker-js/faker';
 import { primaryKey } from '@mswjs/data';
 import { PrimaryKey } from '@mswjs/data/lib/primaryKey';
-import { addRandomNulls } from './helpers.ts';
+import { addRandomNulls } from './helpers';
 
 //let phoneTypes = faker.helpers.arrayElement(['cat', 'dog', 'mouse']) // 'dog'
 enum phoneTypes {
-  Home,
-  Business,
-  Mobile,
+  Home = 'Home',
+  Business = 'Business',
+  Mobile = 'Mobile',
 }
 
-export type Person = {
-  id: PrimaryKey<any>;
-  firstName: string;
-  lastName: string;
-  avatar: string;
-  email: string;
-  phoneNumber: string;
-  address: string;
-  zipCode: string;
-  city: string;
-  state: string;
-  country: string;
-  age: number;
-  approvalDate: string;
-  isActive: string;
-  latitude: number;
-  longitude: number;
+import { type Person } from 'types/Person';
+
+/**
+ *  MSW data is in function format, convert our types to functions instead.
+ */
+type CreateFunctional<Type> = {
+  [Key in keyof Type]: () => Type[Key];
 };
 
-export const PersonModel = {
+type PersonMockModel = CreateFunctional<Person> & {
+  id: PrimaryKey<any>;
+};
+//Our mock data needs to have a primary key associated with it
+
+export const PersonMockModel: PersonMockModel = {
   id: primaryKey(() => faker.string.uuid()),
+  personId: () => faker.string.uuid(),
   firstName: () => faker.person.firstName(),
   lastName: () => faker.person.lastName(),
   jobTitle: () => faker.helpers.maybe(() => faker.person.jobTitle(), { probability: 0.9 }),

@@ -7,14 +7,14 @@ import { useState, useEffect, useRef } from 'react';
 import ContactTable from '@/components/ContactTable/ContactTable';
 import Map from 'components/Map/Map';
 import Box from '@mui/material/Box';
-
-import { Person } from '@/mocks/models/Person.ts';
 import apis from 'routes/apis';
+import { type Person } from 'types/Person';
 
-interface SelectablePerson extends Person {
+//Extend our person object with properties we can use to know whether or not the data is selected or displayed
+type SelectablePerson = Person & {
   isSelected: boolean;
   isDisplayed: boolean;
-}
+};
 
 type RowData = {
   selected: string[];
@@ -23,14 +23,14 @@ type RowData = {
 
 function Contacts() {
   const [persons, setPersons] = useState<SelectablePerson[]>([]);
-  //const [selected, setSelected]=useState({});
 
   const handleTableChange = (rowData: RowData) => {
     setPersons((prevPersons) => {
       let updatePersons = [...prevPersons];
-      updatePersons.forEach((person, key) => {
-        person.isSelected = rowData.selected.includes(person.id);
-        person.isDisplayed = rowData.displayed.includes(person.id);
+      updatePersons.forEach((person: SelectablePerson) => {
+        let id = String(person.personId);
+        person.isSelected = rowData.selected.includes(id);
+        person.isDisplayed = rowData.displayed.includes(id);
       });
       return updatePersons;
     });

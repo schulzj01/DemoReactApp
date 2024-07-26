@@ -26,6 +26,7 @@ export default defineConfig({
       styles: path.resolve(__dirname, `${src}/styles`),
       routes: path.resolve(__dirname, `${src}/routes`),
       mocks: path.resolve(__dirname, `${src}/mocks`),
+      types: path.resolve(__dirname, `${src}/types`),
     },
   },
   //Set up some test configuration parameters, and point to a global test setup file.

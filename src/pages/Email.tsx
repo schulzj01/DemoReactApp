@@ -1,3 +1,9 @@
+/**
+ *
+ *  An example component that displays an email
+ *
+ */
+
 function Email() {
   return (
     <section className='mx-auto max-w-2xl bg-white px-6 py-8 dark:bg-gray-900'>

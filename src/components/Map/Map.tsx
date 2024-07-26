@@ -2,10 +2,11 @@ import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
 //import { useMap } from 'react-leaflet/hooks'
 import Marker from './Marker';
+import { type MarkerProps } from './Marker';
 
 import 'leaflet/dist/leaflet.css';
 
-function Map(props) {
+function Map(props: MarkerProps) {
   return (
     <MapContainer
       center={[45.0, -120.0]}
@@ -30,6 +31,7 @@ function Map(props) {
               lastName={person.lastName}
               jobTitle={person.jobTitle}
               organization={person.organization}
+              id={person.id}
               avatar={person.avatar}
             ></Marker>
           );
