@@ -3,7 +3,7 @@ const paths = {
   contacts: 'Contacts',
   fetchData: 'FetchData',
   email: 'Email',
-	page404: 'Page404'
+  page404: 'Page404',
 };
 
 export default paths;

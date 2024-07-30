@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef, type MRT_RowSelectionState } from 'material-react-table';
 
 type Props = {
-  persons: Object[];
+  persons: object[];
   handleTableChange: Function;
 };
 
@@ -32,7 +32,7 @@ const ContactTable = ({ persons, handleTableChange }: Props) => {
         header: 'Primary Phone',
       },
       {
-        accessorFn: () => ``,
+        accessorFn: () => '',
         header: 'Slack',
       },
     ],

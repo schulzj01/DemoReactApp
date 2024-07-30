@@ -1,0 +1,39 @@
+{
+  "typescript.suggest.completeJSDocs": true,
+  "typescript.suggest.jsdoc.generateReturns": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "never"
+  },
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "prettier.enable": false,
+  "eslint.rules.customizations": [
+    {
+      "rule": "@stylistic/*",
+      "severity": "off"
+    },
+		{
+      "rule": "@readable-tailwind/*",
+      "severity": "off"
+    },
+	],
+	"tailwindCSS.experimental.classRegex": [
+		"([\"'`][^\"'`]*.*?[\"'`])",
+		"[\"'`]([^\"'`]*).*?[\"'`]"
+	],
+	"eslint.useFlatConfig": true,
+	"editor.insertSpaces": true,
+}

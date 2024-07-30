@@ -3,10 +3,10 @@
  *  A page to display a list of contacts in both a table and map
  *
  */
-import { useState, useEffect, useRef } from 'react';
 import ContactTable from '@/components/ContactTable/ContactTable';
-import Map from 'components/Map/Map';
 import Box from '@mui/material/Box';
+import Map from 'components/Map/Map';
+import { useEffect, useState } from 'react';
 import apis from 'routes/apis';
 import { type Person } from 'types/Person';
 

@@ -1,5 +1,5 @@
 /**
- *  Typescript specific settings that are used by the application in the browser
+ *  Typescript specific settings that are used by the application in the browser environment
  *
  */
 {
