@@ -1,15 +1,14 @@
-import { styled } from '@mui/material/styles';
 import L from 'leaflet';
 import { Marker as LMarker } from 'react-leaflet/Marker';
 import { Popup } from 'react-leaflet/Popup';
 
 import { Edit, Email, Smartphone } from '@mui/icons-material';
-import { Avatar, Box, Unstable_Grid2 as Grid, IconButton, Paper } from '@mui/material';
+import { Avatar, Box, Unstable_Grid2 as Grid, IconButton } from '@mui/material';
 
 import 'leaflet/dist/leaflet.css';
 
 export type MarkerProps = {
-  id: string
+  personId: string
   key: string
   latitude: number
   longitude: number
@@ -20,17 +19,10 @@ export type MarkerProps = {
   jobTitle: string
   avatar: string
   organization: string
+  id: string
 };
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobTitle, phoneNumbers, avatar, organization }: MarkerProps) {
+function Marker({ id, personId, latitude, longitude, isSelected, firstName, lastName, jobTitle, phoneNumbers, avatar, organization }: MarkerProps) {
   //  Create the Icon
 
   const blueIcon = new L.Icon({
@@ -45,7 +37,7 @@ function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobT
 
   return (
     <LMarker
-      key={id}
+      key={personId}
       position={[latitude, longitude]}
       icon={isSelected ? blueIcon : greyIcon}
     >

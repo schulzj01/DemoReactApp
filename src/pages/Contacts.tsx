@@ -3,7 +3,6 @@
  *  A page to display a list of contacts in both a table and map
  *
  */
-import ContactTable from '@/components/ContactTable/ContactTable';
 import Box from '@mui/material/Box';
 import Map from 'components/Map/Map';
 import { useEffect, useState } from 'react';
@@ -46,6 +45,7 @@ function Contacts() {
       });
   }, []);
 
+  console.table(persons);
   return (
     <>
       <Box sx={{ height: '100%' }}>
@@ -53,10 +53,10 @@ function Contacts() {
           <Map persons={persons} />
         </Box>
         <Box sx={{ display: 'flex', height: '45%' }}>
-          <ContactTable
+          {/* <ContactTable
             persons={persons}
             handleTableChange={handleTableChange}
-          />
+          /> */}
         </Box>
       </Box>
     </>

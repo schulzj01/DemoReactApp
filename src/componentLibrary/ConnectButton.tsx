@@ -6,9 +6,9 @@
 import { composeRenderProps, Button as RACButton, ButtonProps as RACButtonProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 
-export interface ButtonProps extends RACButtonProps {
+export type ButtonProps = RACButtonProps & {
   variant?: 'primary' | 'secondary' | 'destructive' | 'icon'
-}
+};
 
 /**
  * Create the different button variants

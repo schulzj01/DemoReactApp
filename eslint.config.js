@@ -18,7 +18,6 @@ export default [
     plugins: {
       'react-refresh': pluginReactRefresh,
       'readable-tailwind': eslintPluginReadableTailwind,
-      '@stylistic': stylistic,
     },
 
     // This controls which rules are overriding ones set in the 'extends' property below
@@ -27,7 +26,7 @@ export default [
       'react/jsx-uses-react': 'off', // Newer versions of React (that we're on, don't need to import)
       'react/react-in-jsx-scope': 'off', // Newer versions of React (that we're on, don't need to import)
       'prefer-const': 'off', // https://www.epicweb.dev/talks/let-me-be
-
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'], // https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c
       '@stylistic/indent': ['warn', 2],
       '@stylistic/semi': ['warn', 'always'],
       '@stylistic/quotes': ['warn', 'single'],
@@ -56,6 +55,5 @@ export default [
     },
   }, { // Ignores has to be its own object https://github.com/eslint/eslint/discussions/18304
     ignores: ['dist/', 'coverage/', 'public/'], // Currently the public folder is excluded because of MSW, but this will change
-
   },
 ];

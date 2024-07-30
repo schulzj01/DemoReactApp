@@ -29,7 +29,7 @@ const FetchData = () => {
       <ul>
         {persons?.map((person) => {
           return (
-            <li className='text-xl text-blue-800'>
+            <li key='person.personId' className='text-xl text-blue-800'>
               {person.firstName}
               {' '}
               {person.lastName}

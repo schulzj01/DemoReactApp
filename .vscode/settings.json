@@ -35,5 +35,7 @@
 		"[\"'`]([^\"'`]*).*?[\"'`]"
 	],
 	"eslint.useFlatConfig": true,
-	"editor.insertSpaces": true,
+  "editor.insertSpaces": true,
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
 }

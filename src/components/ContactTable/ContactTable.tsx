@@ -1,5 +1,5 @@
-import { useMemo, useEffect, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef, type MRT_RowSelectionState } from 'material-react-table';
+import { useEffect, useMemo, useState } from 'react';
 
 type Props = {
   persons: object[]
