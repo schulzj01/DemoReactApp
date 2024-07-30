@@ -5,12 +5,12 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 import path from 'path';
 
-//Define a few high level directory variables to be used in this config file
-const [src] = ['src'].map((dir) => path.resolve(__dirname, dir));
+// Define a few high level directory variables to be used in this config file
+const [src] = ['src'].map(dir => path.resolve(__dirname, dir));
 
 export default defineConfig({
   plugins: [react()],
-  //Open up our browser on development start
+  // Open up our browser on development start
   server: {
     open: true,
     port: 5173,
@@ -18,7 +18,7 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  //Set up some importing aliases to keep thing cleaner
+  // Set up some importing aliases to keep thing cleaner
   resolve: {
     alias: {
       '@': src,
@@ -32,7 +32,7 @@ export default defineConfig({
       types: path.resolve(__dirname, `${src}/types`),
     },
   },
-  //Set up some test configuration parameters, and point to a global test setup file.
+  // Set up some test configuration parameters, and point to a global test setup file.
   test: {
     environment: 'jsdom',
     css: true,

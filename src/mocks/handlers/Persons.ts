@@ -1,7 +1,6 @@
 import { http, HttpHandler, HttpResponse } from 'msw';
 import { mockDb } from 'mocks/mockDb';
 
-
 /**
  * How many persons to create in the mock data
  */

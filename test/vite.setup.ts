@@ -6,7 +6,7 @@
  */
 
 import { cleanup } from '@testing-library/react';
-import { /*expect*,*/ afterEach } from 'vitest';
+import { /* expect, */ afterEach } from 'vitest';
 
 afterEach(() => {
   cleanup();

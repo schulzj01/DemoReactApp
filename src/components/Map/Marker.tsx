@@ -1,25 +1,25 @@
+import { styled } from '@mui/material/styles';
+import L from 'leaflet';
 import { Marker as LMarker } from 'react-leaflet/Marker';
 import { Popup } from 'react-leaflet/Popup';
-import L from 'leaflet';
-import { styled } from '@mui/material/styles';
 
-import { Avatar, Unstable_Grid2 as Grid, Box, Paper, IconButton } from '@mui/material';
-import { Email, Smartphone, Edit } from '@mui/icons-material';
+import { Edit, Email, Smartphone } from '@mui/icons-material';
+import { Avatar, Box, Unstable_Grid2 as Grid, IconButton, Paper } from '@mui/material';
 
 import 'leaflet/dist/leaflet.css';
 
 export type MarkerProps = {
-  id: string;
-  key: string;
-  latitude: number;
-  longitude: number;
-  isSelected: boolean;
-  phoneNumbers: { phone: string }[];
-  firstName: string;
-  lastName: string;
-  jobTitle: string;
-  avatar: string;
-  organization: string;
+  id: string
+  key: string
+  latitude: number
+  longitude: number
+  isSelected: boolean
+  phoneNumbers: { phone: string }[]
+  firstName: string
+  lastName: string
+  jobTitle: string
+  avatar: string
+  organization: string
 };
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -73,7 +73,9 @@ function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobT
               alignItems='center'
             >
               <h2>
-                {firstName} {lastName}
+                {firstName}
+                {' '}
+                {lastName}
                 <h5 style={{ margin: '3px', color: '#555555' }}>{primaryPhone}</h5>
               </h2>
             </Grid>
@@ -82,7 +84,9 @@ function Marker({ id, latitude, longitude, isSelected, firstName, lastName, jobT
               xs={12}
             >
               <h3 style={{ margin: 0 }}>
-                {organization} <hr style={{ margin: 0, height: '1px', border: 'none', color: '#DDD', backgroundColor: '#DDD' }}></hr>
+                {organization}
+                {' '}
+                <hr style={{ margin: 0, height: '1px', border: 'none', color: '#DDD', backgroundColor: '#DDD' }}></hr>
               </h3>
               <p style={{ margin: '10px' }}>{jobTitle}</p>
             </Grid>

@@ -3,7 +3,7 @@ import { primaryKey } from '@mswjs/data';
 import { PrimaryKey } from '@mswjs/data/lib/primaryKey';
 import { addRandomNulls } from './helpers';
 
-//let phoneTypes = faker.helpers.arrayElement(['cat', 'dog', 'mouse']) // 'dog'
+// let phoneTypes = faker.helpers.arrayElement(['cat', 'dog', 'mouse']) // 'dog'
 enum phoneTypes {
   Home = 'Home',
   Business = 'Business',
@@ -20,9 +20,9 @@ type CreateFunctional<Type> = {
 };
 
 type PersonMockModel = CreateFunctional<Person> & {
-  id: PrimaryKey<any>;
+  id: PrimaryKey<any>
 };
-//Our mock data needs to have a primary key associated with it
+// Our mock data needs to have a primary key associated with it
 
 export const PersonMockModel: PersonMockModel = {
   id: primaryKey(() => faker.string.uuid()),

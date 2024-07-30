@@ -7,7 +7,7 @@ import { composeRenderProps, Button as RACButton, ButtonProps as RACButtonProps 
 import { tv } from 'tailwind-variants';
 
 export interface ButtonProps extends RACButtonProps {
-  variant?: 'primary' | 'secondary' | 'destructive' | 'icon';
+  variant?: 'primary' | 'secondary' | 'destructive' | 'icon'
 }
 
 /**
@@ -26,7 +26,7 @@ let button = tv({
           bg-gray-100 text-gray-800 dark:pressed:bg-zinc-400 dark:bg-zinc-600 dark:text-zinc-100 dark:hover:bg-zinc-500 hover:bg-gray-200 pressed:bg-gray-300
         `,
       destructive: 'bg-red-700 text-white hover:bg-red-800 pressed:bg-red-900',
-      icon:  `
+      icon: `
         flex items-center justify-center border-0 p-1 text-gray-600 dark:pressed:bg-white/20 dark:text-zinc-400 dark:hover:bg-white/10 disabled:bg-transparent hover:bg-black/[5%] pressed:bg-black/10
       `,
     },

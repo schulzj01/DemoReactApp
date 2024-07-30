@@ -2,33 +2,33 @@ import { useMemo, useEffect, useState } from 'react';
 import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef, type MRT_RowSelectionState } from 'material-react-table';
 
 type Props = {
-  persons: object[];
-  handleTableChange: Function;
+  persons: object[]
+  handleTableChange: Function
 };
 
 const ContactTable = ({ persons, handleTableChange }: Props) => {
-  //const [persons, setPersons] = useState([]);
-  //const [isLoading, setIsLoading] = useState(true);
+  // const [persons, setPersons] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  //The use of .toString here seems sus, but the reasoning is because filtering has issues if the string value is null.
-  //See https://github.com/KevinVandy/material-react-table/issues/315
+  // The use of .toString here seems sus, but the reasoning is because filtering has issues if the string value is null.
+  // See https://github.com/KevinVandy/material-react-table/issues/315
   const columns = useMemo<MRT_ColumnDef<any>[]>(
     () => [
       {
-        accessorFn: (row) => `${row.firstName} ${row.lastName}`.toString(),
+        accessorFn: row => `${row.firstName} ${row.lastName}`.toString(),
         accessorKey: 'firstName',
         header: 'Name',
       },
       {
-        accessorFn: (row) => (row.jobTitle ? `${row.jobTitle}`.toString() : ''),
+        accessorFn: row => (row.jobTitle ? `${row.jobTitle}`.toString() : ''),
         header: 'Position/Job Title',
       },
       {
-        accessorFn: (row) => (row.organization ? `${row.organization}`.toString() : ''),
+        accessorFn: row => (row.organization ? `${row.organization}`.toString() : ''),
         header: 'Organization',
       },
       {
-        accessorFn: (row) => (row.phoneNumbers[0]?.phone ? `${row.phoneNumbers[0]?.phone}`.toString() : ''),
+        accessorFn: row => (row.phoneNumbers[0]?.phone ? `${row.phoneNumbers[0]?.phone}`.toString() : ''),
         header: 'Primary Phone',
       },
       {
@@ -46,12 +46,12 @@ const ContactTable = ({ persons, handleTableChange }: Props) => {
     columns,
     data,
     enableRowSelection: true,
-    positionGlobalFilter: 'right', //show the global filter on the left side of the top toolbar
+    positionGlobalFilter: 'right', // show the global filter on the left side of the top toolbar
     initialState: {
-      showGlobalFilter: true, //show the global filter by default
-      density: 'compact', //start us off nice and compact
+      showGlobalFilter: true, // show the global filter by default
+      density: 'compact', // start us off nice and compact
     },
-    globalFilterFn: 'contains', //turn off fuzzy matching and use simple contains filter function
+    globalFilterFn: 'contains', // turn off fuzzy matching and use simple contains filter function
     enablePagination: false,
     enableStickyHeader: true,
     enableRowVirtualization: true,
@@ -62,7 +62,7 @@ const ContactTable = ({ persons, handleTableChange }: Props) => {
       isLoading: false,
       rowSelection,
     },
-    onRowSelectionChange: setRowSelection, //connect internal row selection state to your own
+    onRowSelectionChange: setRowSelection, // connect internal row selection state to your own
     muiCircularProgressProps: {
       color: 'secondary',
       thickness: 5,

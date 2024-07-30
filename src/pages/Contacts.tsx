@@ -10,15 +10,15 @@ import { useEffect, useState } from 'react';
 import apis from 'routes/apis';
 import { type Person } from 'types/Person';
 
-//Extend our person object with properties we can use to know whether or not the data is selected or displayed
+// Extend our person object with properties we can use to know whether or not the data is selected or displayed
 type SelectablePerson = Person & {
-  isSelected: boolean;
-  isDisplayed: boolean;
+  isSelected: boolean
+  isDisplayed: boolean
 };
 
 type RowData = {
-  selected: string[];
-  displayed: string[];
+  selected: string[]
+  displayed: string[]
 };
 
 function Contacts() {
@@ -38,10 +38,10 @@ function Contacts() {
 
   useEffect(() => {
     fetch(apis.persons)
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((data: SelectablePerson[]) => {
-        //Add a property into our data that allows us to monitor the selection in the table.
-        let selectablePersons = data.map((obj) => ({ ...obj, isSelected: false, isDisplayed: true }));
+        // Add a property into our data that allows us to monitor the selection in the table.
+        let selectablePersons = data.map(obj => ({ ...obj, isSelected: false, isDisplayed: true }));
         setPersons(selectablePersons);
       });
   }, []);

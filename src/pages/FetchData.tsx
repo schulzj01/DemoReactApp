@@ -14,7 +14,7 @@ const FetchData = () => {
   useEffect(() => {
     setLoading(true);
     fetch('/api/persons')
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((data) => {
         setPersons(data);
         setLoading(false);
@@ -30,7 +30,9 @@ const FetchData = () => {
         {persons?.map((person) => {
           return (
             <li className='text-xl text-blue-800'>
-              {person.firstName} {person.lastName}
+              {person.firstName}
+              {' '}
+              {person.lastName}
             </li>
           );
         })}
