@@ -2,8 +2,8 @@
  * Configuration for the Vite build and dev system
  */
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vitest/config';
 import path from 'path';
+import { defineConfig } from 'vitest/config';
 
 // Define a few high level directory variables to be used in this config file
 const [src] = ['src'].map(dir => path.resolve(__dirname, dir));
@@ -32,10 +32,5 @@ export default defineConfig({
       types: path.resolve(__dirname, `${src}/types`),
     },
   },
-  // Set up some test configuration parameters, and point to a global test setup file.
-  test: {
-    environment: 'jsdom',
-    css: true,
-    setupFiles: ['./test/vite.setup.ts'],
-  },
+
 });

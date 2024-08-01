@@ -73,28 +73,7 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 
 #### Recommended settings.json Properties
 
-```json
-{
-  "typescript.suggest.completeJSDocs": true,
-  "typescript.suggest.jsdoc.generateReturns": true,
-  "editor.formatOnSave": false,
-  // Runs Prettier, then ESLint
-  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.trimTrailingWhitespace": true,
-  "files.trimFinalNewlines": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "tailwindCSS.experimental.classRegex": ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-}
-```
+These recommended settings are captured in the .vscode/settings.json part of this repository.  These setting should override any local preferences you have set.
 
 #### Recommended Extensions
 
@@ -103,6 +82,7 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 - Tailwind CSS Intellisense
 - Tailwind Fold
 - Tailwind Documentation
+- Playwright Test for VSCode
 
 ### IntelliJ
 

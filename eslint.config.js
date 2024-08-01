@@ -7,11 +7,13 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default [
+  // Add recommended programatic linting options
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-
+  // Add recommended stylistic linting options
   stylistic.configs['recommended-flat'],
+
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: { globals: globals.browser },
@@ -20,7 +22,7 @@ export default [
       'readable-tailwind': eslintPluginReadableTailwind,
     },
 
-    // This controls which rules are overriding ones set in the 'extends' property below
+    // Team specific overrides and additional linting rules to help guide code style and format
     rules: {
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/jsx-uses-react': 'off', // Newer versions of React (that we're on, don't need to import)
@@ -53,7 +55,9 @@ export default [
         version: 'detect',
       },
     },
-  }, { // Ignores has to be its own object https://github.com/eslint/eslint/discussions/18304
+  },
+  {
+    // Ignores has to be its own object https://github.com/eslint/eslint/discussions/18304
     ignores: ['dist/', 'coverage/', 'public/'], // Currently the public folder is excluded because of MSW, but this will change
   },
 ];
