@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "test:coverage": "playwright test && c8 report"
+    "test:coverage": "playwright test && c8 report",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -52,6 +53,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-readable-tailwind": "^1.5.3",
     "globals": "^15.8.0",
+    "husky": "^9.1.4",
     "jsdom": "^24.0.0",
     "msw": "^2.2.13",
     "package-changed": "^3.0.0",
