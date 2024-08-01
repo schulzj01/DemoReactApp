@@ -5,7 +5,7 @@
   "files.trimFinalNewlines": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
+    "source.sortImports": "explicit",
     "source.fixAll": "never"
   },
   "eslint.format.enable": true,
