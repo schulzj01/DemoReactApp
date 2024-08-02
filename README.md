@@ -73,7 +73,7 @@ JSDoc can be set to autocomplete, and should auto populate by typing `/**` and h
 
 #### Recommended settings.json Properties
 
-These recommended settings are captured in the .vscode/settings.json part of this repository.  These setting should override any local preferences you have set.
+These recommended settings are captured in the .vscode/settings.json part of this repository. These setting should override any local preferences you have set.
 
 #### Recommended Extensions
 

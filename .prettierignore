@@ -1,0 +1,6 @@
+#Ignore SVG files
+*.svg
+
+#Ignore test data
+/tests/report/**/*
+/tests/results/**/*

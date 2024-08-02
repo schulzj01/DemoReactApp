@@ -14,7 +14,7 @@ const FetchData = () => {
   useEffect(() => {
     setLoading(true);
     fetch('/api/persons')
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((data) => {
         setPersons(data);
         setLoading(false);
@@ -29,10 +29,11 @@ const FetchData = () => {
       <ul>
         {persons?.map((person) => {
           return (
-            <li key='person.personId' className='text-xl text-blue-800'>
-              {person.firstName}
-              {' '}
-              {person.lastName}
+            <li
+              key='person.personId'
+              className='text-xl text-blue-800'
+            >
+              {person.firstName} {person.lastName}
             </li>
           );
         })}

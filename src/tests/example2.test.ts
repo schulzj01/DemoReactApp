@@ -4,11 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('https://demo.playwright.dev/todomvc');
 });
 
-const TODO_ITEMS = [
-  'buy some cheese',
-  'feed the cat',
-  'book a doctors appointment',
-] as const;
+const TODO_ITEMS = ['buy some cheese', 'feed the cat', 'book a doctors appointment'] as const;
 
 test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
@@ -20,19 +16,14 @@ test.describe('New Todo', () => {
     await newTodo.press('Enter');
 
     // Make sure the list only has one todo item.
-    await expect(page.getByTestId('todo-title')).toHaveText([
-      TODO_ITEMS[0],
-    ]);
+    await expect(page.getByTestId('todo-title')).toHaveText([TODO_ITEMS[0]]);
 
     // Create 2nd todo.
     await newTodo.fill(TODO_ITEMS[1]);
     await newTodo.press('Enter');
 
     // Make sure the list now has two todo items.
-    await expect(page.getByTestId('todo-title')).toHaveText([
-      TODO_ITEMS[0],
-      TODO_ITEMS[1],
-    ]);
+    await expect(page.getByTestId('todo-title')).toHaveText([TODO_ITEMS[0], TODO_ITEMS[1]]);
 
     await checkNumberOfTodosInLocalStorage(page, 2);
   });
@@ -181,11 +172,7 @@ test.describe('Item', () => {
     await secondTodo.getByRole('textbox', { name: 'Edit' }).press('Enter');
 
     // Explicitly assert the new text value.
-    await expect(todoItems).toHaveText([
-      TODO_ITEMS[0],
-      'buy some sausages',
-      TODO_ITEMS[2],
-    ]);
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], 'buy some sausages', TODO_ITEMS[2]]);
     await checkTodosInLocalStorage(page, 'buy some sausages');
   });
 });
@@ -200,9 +187,11 @@ test.describe('Editing', () => {
     const todoItem = page.getByTestId('todo-item').nth(1);
     await todoItem.dblclick();
     await expect(todoItem.getByRole('checkbox')).not.toBeVisible();
-    await expect(todoItem.locator('label', {
-      hasText: TODO_ITEMS[1],
-    })).not.toBeVisible();
+    await expect(
+      todoItem.locator('label', {
+        hasText: TODO_ITEMS[1],
+      }),
+    ).not.toBeVisible();
     await checkNumberOfTodosInLocalStorage(page, 3);
   });
 
@@ -212,11 +201,7 @@ test.describe('Editing', () => {
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).fill('buy some sausages');
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).dispatchEvent('blur');
 
-    await expect(todoItems).toHaveText([
-      TODO_ITEMS[0],
-      'buy some sausages',
-      TODO_ITEMS[2],
-    ]);
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], 'buy some sausages', TODO_ITEMS[2]]);
     await checkTodosInLocalStorage(page, 'buy some sausages');
   });
 
@@ -226,11 +211,7 @@ test.describe('Editing', () => {
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).fill('    buy some sausages    ');
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).press('Enter');
 
-    await expect(todoItems).toHaveText([
-      TODO_ITEMS[0],
-      'buy some sausages',
-      TODO_ITEMS[2],
-    ]);
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], 'buy some sausages', TODO_ITEMS[2]]);
     await checkTodosInLocalStorage(page, 'buy some sausages');
   });
 
@@ -240,10 +221,7 @@ test.describe('Editing', () => {
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).fill('');
     await todoItems.nth(1).getByRole('textbox', { name: 'Edit' }).press('Enter');
 
-    await expect(todoItems).toHaveText([
-      TODO_ITEMS[0],
-      TODO_ITEMS[2],
-    ]);
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], TODO_ITEMS[2]]);
   });
 
   test('should cancel edits on escape', async ({ page }) => {
@@ -431,6 +409,8 @@ async function checkNumberOfCompletedTodosInLocalStorage(page: Page, expected: n
 
 async function checkTodosInLocalStorage(page: Page, title: string) {
   return await page.waitForFunction((t) => {
-    return JSON.parse(localStorage['react-todos']).map((todo: { title: string }) => todo.title).includes(t);
+    return JSON.parse(localStorage['react-todos'])
+      .map((todo: { title: string }) => todo.title)
+      .includes(t);
   }, title);
 }

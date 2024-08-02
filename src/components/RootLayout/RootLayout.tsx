@@ -15,9 +15,8 @@ export function RootLayout() {
         </main>
       </div>
     </>
-
   );
-};
+}
 export default RootLayout;
 /*
 export function Layout(props: { children: React.ReactNode }) {

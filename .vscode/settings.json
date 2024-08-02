@@ -8,34 +8,22 @@
     "source.sortImports": "explicit",
     "source.fixAll": "never"
   },
-  "eslint.format.enable": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.enable": false,
-  "eslint.rules.customizations": [
-    {
-      "rule": "@stylistic/*",
-      "severity": "off"
-    },
-		{
-      "rule": "@readable-tailwind/*",
-      "severity": "off"
-    },
-	],
-	"tailwindCSS.experimental.classRegex": [
-		"([\"'`][^\"'`]*.*?[\"'`])",
-		"[\"'`]([^\"'`]*).*?[\"'`]"
-	],
-	"eslint.useFlatConfig": true,
+  "prettier.enable": true,
+  "eslint.format.enable": false,
+  "eslint.rules.customizations": [],
+  "tailwindCSS.experimental.classRegex": ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  "eslint.useFlatConfig": true,
   "editor.insertSpaces": true,
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
-  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal"
 }

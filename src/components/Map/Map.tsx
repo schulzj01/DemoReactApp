@@ -32,8 +32,7 @@ function Map(props: MarkerProps) {
               organization={person.organization}
               personId={person.personId}
               avatar={person.avatar}
-            >
-            </Marker>
+            ></Marker>
           );
         }
       })}

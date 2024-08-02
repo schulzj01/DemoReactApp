@@ -18,8 +18,7 @@ export function ErrorPage() {
         )}
       </div>
     );
-  }
-  else if (error instanceof Error) {
+  } else if (error instanceof Error) {
     return (
       <div id='error-page'>
         <h1>Oops! Unexpected Error</h1>
@@ -29,8 +28,7 @@ export function ErrorPage() {
         </p>
       </div>
     );
-  }
-  else {
+  } else {
     return <></>;
   }
 }

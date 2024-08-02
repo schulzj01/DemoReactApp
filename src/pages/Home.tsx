@@ -7,7 +7,7 @@ function Component() {
   return (
     <>
       <p>
-        <RACLink href={paths.contacts}>Fetch  Data</RACLink>
+        <RACLink href={paths.contacts}>Fetch Data</RACLink>
         <Link to={paths.contacts}>
           <ConnectButton
             variant='primary'
@@ -18,7 +18,7 @@ function Component() {
         </Link>
       </p>
       <p>
-        <RACLink href={paths.fetchData}>Fetch  Data</RACLink>
+        <RACLink href={paths.fetchData}>Fetch Data</RACLink>
         <ConnectButton
           variant='destructive'
           className='m-3 w-2/6'

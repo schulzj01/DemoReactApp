@@ -2,8 +2,8 @@ import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef, type MRT
 import { useEffect, useMemo, useState } from 'react';
 
 type Props = {
-  persons: object[]
-  handleTableChange: Function
+  persons: object[];
+  handleTableChange: Function;
 };
 
 const ContactTable = ({ persons, handleTableChange }: Props) => {
@@ -15,20 +15,20 @@ const ContactTable = ({ persons, handleTableChange }: Props) => {
   const columns = useMemo<MRT_ColumnDef<any>[]>(
     () => [
       {
-        accessorFn: row => `${row.firstName} ${row.lastName}`.toString(),
+        accessorFn: (row) => `${row.firstName} ${row.lastName}`.toString(),
         accessorKey: 'firstName',
         header: 'Name',
       },
       {
-        accessorFn: row => (row.jobTitle ? `${row.jobTitle}`.toString() : ''),
+        accessorFn: (row) => (row.jobTitle ? `${row.jobTitle}`.toString() : ''),
         header: 'Position/Job Title',
       },
       {
-        accessorFn: row => (row.organization ? `${row.organization}`.toString() : ''),
+        accessorFn: (row) => (row.organization ? `${row.organization}`.toString() : ''),
         header: 'Organization',
       },
       {
-        accessorFn: row => (row.phoneNumbers[0]?.phone ? `${row.phoneNumbers[0]?.phone}`.toString() : ''),
+        accessorFn: (row) => (row.phoneNumbers[0]?.phone ? `${row.phoneNumbers[0]?.phone}`.toString() : ''),
         header: 'Primary Phone',
       },
       {

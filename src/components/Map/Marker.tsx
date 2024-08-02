@@ -8,21 +8,33 @@ import { Avatar, Box, Unstable_Grid2 as Grid, IconButton } from '@mui/material';
 import 'leaflet/dist/leaflet.css';
 
 export type MarkerProps = {
-  personId: string
-  key: string
-  latitude: number
-  longitude: number
-  isSelected: boolean
-  phoneNumbers: { phone: string }[]
-  firstName: string
-  lastName: string
-  jobTitle: string
-  avatar: string
-  organization: string
-  id: string
+  personId: string;
+  key: string;
+  latitude: number;
+  longitude: number;
+  isSelected: boolean;
+  phoneNumbers: { phone: string }[];
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  avatar: string;
+  organization: string;
+  id: string;
 };
 
-function Marker({ id, personId, latitude, longitude, isSelected, firstName, lastName, jobTitle, phoneNumbers, avatar, organization }: MarkerProps) {
+function Marker({
+  id,
+  personId,
+  latitude,
+  longitude,
+  isSelected,
+  firstName,
+  lastName,
+  jobTitle,
+  phoneNumbers,
+  avatar,
+  organization,
+}: MarkerProps) {
   //  Create the Icon
 
   const blueIcon = new L.Icon({
@@ -65,9 +77,7 @@ function Marker({ id, personId, latitude, longitude, isSelected, firstName, last
               alignItems='center'
             >
               <h2>
-                {firstName}
-                {' '}
-                {lastName}
+                {firstName} {lastName}
                 <h5 style={{ margin: '3px', color: '#555555' }}>{primaryPhone}</h5>
               </h2>
             </Grid>
@@ -76,9 +86,7 @@ function Marker({ id, personId, latitude, longitude, isSelected, firstName, last
               xs={12}
             >
               <h3 style={{ margin: 0 }}>
-                {organization}
-                {' '}
-                <hr style={{ margin: 0, height: '1px', border: 'none', color: '#DDD', backgroundColor: '#DDD' }}></hr>
+                {organization} <hr style={{ margin: 0, height: '1px', border: 'none', color: '#DDD', backgroundColor: '#DDD' }}></hr>
               </h3>
               <p style={{ margin: '10px' }}>{jobTitle}</p>
             </Grid>

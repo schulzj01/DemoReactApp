@@ -6,7 +6,7 @@ import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 // Define a few high level directory variables to be used in this config file
-const [src] = ['src'].map(dir => path.resolve(__dirname, dir));
+const [src] = ['src'].map((dir) => path.resolve(__dirname, dir));
 
 export default defineConfig({
   plugins: [react()],
@@ -32,5 +32,4 @@ export default defineConfig({
       types: path.resolve(__dirname, `${src}/types`),
     },
   },
-
 });

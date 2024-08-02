@@ -20,7 +20,7 @@ type CreateFunctional<Type> = {
 };
 
 type PersonMockModel = CreateFunctional<Person> & {
-  id: PrimaryKey<string>
+  id: PrimaryKey<string>;
 };
 // Our mock data needs to have a primary key associated with it
 

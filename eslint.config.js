@@ -1,8 +1,8 @@
 import pluginJs from '@eslint/js';
-import stylistic from '@stylistic/eslint-plugin';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
-import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind';
+//import eslintPluginReadableTailwind from 'eslint-plugin-readable-tailwind';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -11,15 +11,12 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  // Add recommended stylistic linting options
-  stylistic.configs['recommended-flat'],
-
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: { globals: globals.browser },
     plugins: {
       'react-refresh': pluginReactRefresh,
-      'readable-tailwind': eslintPluginReadableTailwind,
+      //'readable-tailwind': eslintPluginReadableTailwind,
     },
 
     // Team specific overrides and additional linting rules to help guide code style and format
@@ -29,7 +26,7 @@ export default [
       'react/react-in-jsx-scope': 'off', // Newer versions of React (that we're on, don't need to import)
       'prefer-const': 'off', // https://www.epicweb.dev/talks/let-me-be
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'], // https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c
-      '@stylistic/indent': ['warn', 2],
+      /*  '@stylistic/indent': ['warn', 2],
       '@stylistic/semi': ['warn', 'always'],
       '@stylistic/quotes': ['warn', 'single'],
       '@stylistic/comma-dangle': ['warn', 'always-multiline'],
@@ -48,7 +45,8 @@ export default [
       'readable-tailwind/multiline': ['warn', {
         group: 'never',
         printWidth: 140,
-      }],
+      }], */
+      // 'eslint-config-prettier/prettier':"error",
     },
     settings: {
       react: {
@@ -60,4 +58,5 @@ export default [
     // Ignores has to be its own object https://github.com/eslint/eslint/discussions/18304
     ignores: ['dist/', 'coverage/', 'public/'], // Currently the public folder is excluded because of MSW, but this will change
   },
+  eslintConfigPrettier,
 ];

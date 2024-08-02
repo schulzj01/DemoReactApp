@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-playwright.playwright",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "gitlab.gitlab-workflow"
+  ]
+}
