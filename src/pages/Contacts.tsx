@@ -45,7 +45,6 @@ function Contacts() {
       });
   }, []);
 
-  console.table(persons);
   return (
     <>
       <Box sx={{ height: '100%' }}>
