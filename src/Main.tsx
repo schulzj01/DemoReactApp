@@ -24,6 +24,7 @@ enableMocking().then(() => {
   ReactDOM.createRoot(rootElement).render(
     <StrictMode>
       <App />
+      <></>
     </StrictMode>,
   );
 });
