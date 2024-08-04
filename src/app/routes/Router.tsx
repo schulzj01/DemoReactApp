@@ -3,11 +3,11 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from './Root';
 
 /* import paths from 'routes/paths'; */
-const Home = lazy(() => import('pages/Home'));
-const Contacts = lazy(() => import('pages/Contacts'));
-const FetchData = lazy(() => import('pages/FetchData'));
+const Home = lazy(() => import('features/Home'));
+const Contacts = lazy(() => import('features/Contacts/Contacts'));
+const FetchData = lazy(() => import('features/FetchData'));
 //const Email = lazy(() => import('pages/Email'));
-const ErrorPage = lazy(() => import('pages/ErrorPage'));
+const ErrorPage = lazy(() => import('features/ErrorPage'));
 
 /* const routeChildren = [
   { path: paths.home, element: <Home /> },

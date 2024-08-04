@@ -27,13 +27,15 @@
     "baseUrl": ".",
     "paths": {
       //"@/*": ["./src/*"],
+      "app/*": ["./src/app/*"],
       "assets/*": ["./src/assets/*"],
       "componentLibrary/*": ["./src/componentLibrary/*"],
       "components/*": ["./src/components/*"],
-      "pages/*": ["./src/pages/*"],
-      "routes/*": ["./src/routes/*"],
+      "features/*": ["src/features/*"],
       "mocks/*": ["./src/mocks/*"],
-      "types/*": ["./src/types/*"]
+      "types/*": ["./src/types/*"],
+      "utilities/*": ["src/app/utilities/*"],
+
     }
   },
   "references": [{ "path": "./tsconfig.node.json" }]

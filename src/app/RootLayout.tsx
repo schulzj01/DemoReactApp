@@ -1,5 +1,5 @@
-import NavHeaderBar from 'components/NavHeaderBar/NavHeaderBar';
 import { Suspense } from 'react';
+import NavHeaderBar from 'components/NavHeaderBar/NavHeaderBar';
 
 export function RootLayout() {
   return (

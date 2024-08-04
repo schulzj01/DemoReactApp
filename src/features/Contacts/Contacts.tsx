@@ -4,10 +4,10 @@
  *
  */
 import Box from '@mui/material/Box';
-import Map from 'components/Map/Map';
+import apis from 'app/routes/apis';
 import { useEffect, useState } from 'react';
-import apis from 'routes/apis';
 import { type Person } from 'types/Person';
+import Map from './components/Map';
 
 // Extend our person object with properties we can use to know whether or not the data is selected or displayed
 type SelectablePerson = Person & {

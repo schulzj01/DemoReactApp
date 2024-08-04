@@ -14,7 +14,7 @@
     "test:ui": "playwright test --ui",
     "test:coverage": "playwright test && c8 report",
     "prepare": "husky",
-    "prettycheck": "prettier './' -c"
+    "prettycheck": "prettier -c \"**/*\""
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

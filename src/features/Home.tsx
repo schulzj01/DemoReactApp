@@ -1,7 +1,7 @@
+import paths from 'app/routes/paths';
 import { ConnectButton } from 'componentLibrary/ConnectButton';
 import { Link as RACLink } from 'react-aria-components';
 import { Link } from 'react-router-dom';
-import paths from 'routes/paths';
 
 function Component() {
   return (

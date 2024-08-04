@@ -1,7 +1,7 @@
-import NavHeaderBar from 'components/NavHeaderBar/NavHeaderBar';
 import { Suspense } from 'react';
 import { RouterProvider } from 'react-aria-components';
 import { Outlet, useNavigate } from 'react-router-dom';
+import NavHeaderBar from 'components/NavHeaderBar/NavHeaderBar';
 
 /* function useAbsoluteHref(path: string) {
   const relative = useHref(path);

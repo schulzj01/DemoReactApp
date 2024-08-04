@@ -12,7 +12,8 @@ import { defineConfig, devices } from 'playwright-test-coverage-native';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './src',
+  testDir: './',
+  testIgnore: '**/node_modules/**',
   // Glob patterns or regular expressions that match test files.
   // testMatch: '.*(test|spec).(js|ts|mjs|jsx|tsx)',
   /* Run tests in files in parallel */
@@ -35,7 +36,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   // Folder for test artifacts such as screenshots, videos, traces, etc.
-  outputDir: './tests/results',
+  outputDir: '/tests/results',
 
   /* Configure projects for major browsers */
   projects: [

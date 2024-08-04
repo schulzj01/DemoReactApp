@@ -22,14 +22,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': src,
+      app: path.resolve(__dirname, `${src}/app`),
       assets: path.resolve(__dirname, `${src}/assets`),
-      pages: path.resolve(__dirname, `${src}/pages`),
+      features: path.resolve(__dirname, `${src}/features`),
       components: path.resolve(__dirname, `${src}/components`),
       componentLibrary: path.resolve(__dirname, `${src}/componentLibrary`),
-      styles: path.resolve(__dirname, `${src}/styles`),
-      routes: path.resolve(__dirname, `${src}/routes`),
       mocks: path.resolve(__dirname, `${src}/mocks`),
       types: path.resolve(__dirname, `${src}/types`),
+      utilities: path.resolve(__dirname, `${src}/utilities`),
     },
   },
 });

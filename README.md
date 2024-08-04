@@ -23,18 +23,24 @@ Upon application development startup, any packages added since the last package 
 
 ## Folder Structure
 
-> .husky: Configuration information for commit hooks
-> dist: The location of the latest built distribution of this application.
-> node_modules: Dynamic directory for package management.  This is .gitignored.
-> public:
-> src/assets:
-> src/componentLibrary: A placeholder for the NWS Connect Atmosphere Design System
-> src/components: Molocule or smaller level components that are not included in the component library
-> src/mocks: Tooling to allow mocking of API or other data that may not be available during early development
-> src/pages: Full page pieces of the applications built from components
-> src/routes: Configuration on routing the browser to different pages inside the application
-> src/tests: (I think I have to move this down a level)
-> src/types: A container to include type information for broadly shared objects
+Project folder structure can be quite subjective.  This is a recommended starting point for the team as well as a possible organization.  That being said, there are [always better ways](https://react-file-structure.surge.sh/).
+
+| Folder | Purpose |
+| :----- | :------ |
+| .husky | Configuration information for commit hooks |
+| dist | The location of the latest built distribution of this application. |
+| node_modules | Dynamic directory for package management.  This is .gitignored.
+| public | |
+| src/app | Application pieces dealing with the global application |
+| src/app/routes | Configuration on routing the browser to different pages inside the application |
+| src/assets | Static files that can be served up as is (.e.g images) |
+| src/componentLibrary | A placeholder for the NWS Connect Atmosphere Design System |
+| src/components | Molocule or smaller level components that are not included in the component library and are shared across features |
+| src/features | Full featured pieces of the applications built from components.  This folder should be substructed out with feature specific pieces (components, api, hooks, utils, etc ) |
+| src/mocks | Tooling to allow mocking of API or other data that may not be available during early development |
+| src/types | A container to include type information for broadly shared objects.  Type information for specific components that are not needed elsewhere should be kept with the component |
+| src/utilities | Shared utility functions that would be leveraged throughout the application |
+| tests | End to End tests for the entire application - Tests for individual features or components should be colocated with them |
 
 
 ## UI Styling
@@ -48,15 +54,15 @@ It is recommended to install certain Tailwind extensions to aid in styling (See 
 
 While the tools used in various applications will grow and diverge differently, the following tools are included here as recommendations to use for their specific use case
 
-### Zustand vs React Context vs Prop Drilling
+### Client State - Zustand vs React Context vs Prop Drilling
 
 Maintaining proper state is an important piece of React.   When state of a component changes, all children components may be impacted (ignoring useMemo here).  While most data flow in React should be done through props, maintaining that state across multiple levels of heiarchy can be challenging.
 
-Prop drilling is the method for moving props up and down the compoent tree.  However drilling more than a couple of levels may get quite challenging to keep track of.
+**Prop Drilling** Prop drilling is the method for moving props up and down the compoent tree.  However drilling more than a couple of levels may get quite challenging to keep track of.
 
-This is where tools such as Zustand will help.  Zustand helps maintain state across components in different part of your application that may be in vastly different places.  It is most useful when those components change routinely.
+**Zustand** This is where tools such as Zustand will help.  Zustand helps maintain state across components in different part of your application that may be in vastly different places.  It is most useful when those components change routinely.
 
-React Context can also be helpful for maintaining client state. It is recommended to only be used for broad global states that do not or rarely change.  Things like an office ID or perhaps a color scheme would be helpful to be defined/stored in React Context.
+**React Context** This can also be helpful for maintaining client state. It is recommended to only be used for broad global states that do not or rarely change.  Things like an office ID or perhaps a color scheme would be helpful to be defined/stored in React Context.
 
 
 ### React Router
@@ -72,7 +78,7 @@ Currently the application is set up to use a mock service to allow developers to
 
 ## Testing the Application
 
-The application is using Playwright as a test runner. Playwright can run unit, integration, and end-to-end tests.  Testing strategies for different tests, browsers, devices, etc can be configured int he `playwrite.config.ts` file.
+The application is using Playwright as a test runner. Playwright can run unit, integration, and end-to-end tests.  Testing strategies for different tests, browsers, devices, etc can be configured int he `playwrite.config.ts` file. If this is the first time using playwright, you may need to run the `npx playwright install` command to download additional playwright tools.
 
 Tests can be run a variety of different ways:
 

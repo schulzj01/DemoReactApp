@@ -4,3 +4,6 @@
 #Ignore test data
 /tests/report/**/*
 /tests/results/**/*
+
+#Ignore .dotfiles
+/**/.*
