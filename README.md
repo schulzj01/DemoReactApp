@@ -121,7 +121,7 @@ Code standards are enforced using a variety of different tools. Information on e
 
 ## Typescript
 
-Javascript can be written quite easily, however because of it's ability to dynamically define variables, its up to the developers to keep track of what a variable's type is. Typescript is a superset of the Javascript language. Typescript adds the ability to define variable types during creation as well as add support for extending classes with Interfaces. Typescript's requirement to define types allows the IDE to alert developers on when a variable is incorrectly translated, and find possible errors immediately during the development process. Note that type information is not included in the application build
+Javascript can be written quite easily, however because of it's ability to dynamically define variables, its up to the developers to keep track of what a variable's type is. Typescript is a superset of the Javascript language. Typescript adds the ability to define variable types during creation as well as add support for extending classes with Interfaces. Typescript's requirement to define types allows the IDE to alert developers on when a variable is incorrectly translated, and find possible errors immediately during the development process. Note that type information is not included in the application build.
 
 ### Where & How to Define Types
 
@@ -139,6 +139,10 @@ type Partner = Person & {
   partnerId: string;
 };
 ```
+
+### Resources
+
+Typescript, developed by Microsoft, has extensive documentation on its use and best practices. See the [Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) and [Typescript Dos and Don'ts](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html) for tips or best practices.
 
 &nbsp;
 &nbsp;
