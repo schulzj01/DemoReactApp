@@ -7,7 +7,7 @@
 import { useEffect, useState } from 'react';
 import { type Person } from 'types/Person';
 
-const FetchData = () => {
+function FetchData() {
   const [persons, setPersons] = useState<Person[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -40,6 +40,6 @@ const FetchData = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default FetchData;

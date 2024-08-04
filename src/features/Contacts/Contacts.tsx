@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import apis from 'app/routes/apis';
 import { useEffect, useState } from 'react';
 import { type Person } from 'types/Person';
+import ContactTable from './components/ContactTable';
 import Map from './components/Map';
 
 // Extend our person object with properties we can use to know whether or not the data is selected or displayed
@@ -52,10 +53,12 @@ function Contacts() {
           <Map persons={persons} />
         </Box>
         <Box sx={{ display: 'flex', height: '45%' }}>
-          {/* <ContactTable
-            persons={persons}
-            handleTableChange={handleTableChange}
-          /> */}
+          {
+            <ContactTable
+              persons={persons}
+              handleTableChange={handleTableChange}
+            />
+          }
         </Box>
       </Box>
     </>

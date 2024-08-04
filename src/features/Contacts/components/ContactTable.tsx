@@ -3,10 +3,10 @@ import { useEffect, useMemo, useState } from 'react';
 
 type Props = {
   persons: object[];
-  handleTableChange: Function;
+  // handleTableChange: ReturnType[]>;
 };
 
-const ContactTable = ({ persons, handleTableChange }: Props) => {
+function ContactTable({ persons, handleTableChange }: Props) {
   // const [persons, setPersons] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -84,6 +84,6 @@ const ContactTable = ({ persons, handleTableChange }: Props) => {
   }, [table.getState().rowSelection, table.getRowModel()]);
 
   return <MaterialReactTable table={table} />;
-};
+}
 
 export default ContactTable;

@@ -1,13 +1,6 @@
-import { lazy } from 'react';
+import ErrorPage from 'features/ErrorPage';
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './Root';
-
-/* import paths from 'routes/paths'; */
-const Home = lazy(() => import('features/Home'));
-const Contacts = lazy(() => import('features/Contacts/Contacts'));
-const FetchData = lazy(() => import('features/FetchData'));
-//const Email = lazy(() => import('pages/Email'));
-const ErrorPage = lazy(() => import('features/ErrorPage'));
 
 /* const routeChildren = [
   { path: paths.home, element: <Home /> },
@@ -16,6 +9,19 @@ const ErrorPage = lazy(() => import('features/ErrorPage'));
   { path: paths.email, element: <Email /> },
   { path: paths.error, element: <ErrorPage /> },
 ]; */
+
+/**
+ * React router is expecting a default component for lazy loads. This is just a shortcut to provide that
+ * @param componentFile - The path to the component file to be imported
+ * @returns - A lazy loaded promise that points to the default exported component
+ */
+function getDefaultComponent(componentFile: string) {
+  return async () => {
+    let component = await import(componentFile);
+    return { Component: component.default };
+  };
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -25,15 +31,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        lazy: getDefaultComponent('features/Home'),
       },
       {
         path: '/FetchData',
-        element: <FetchData />,
+        lazy: getDefaultComponent('features/FetchData'),
       },
       {
         path: '/Contacts',
-        element: <Contacts />,
+        lazy: getDefaultComponent('features/Contacts'),
+      },
+      {
+        path: '/Email',
+        lazy: getDefaultComponent('features/Email'),
       },
     ],
   },

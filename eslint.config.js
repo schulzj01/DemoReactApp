@@ -25,6 +25,10 @@ export default [
       'react/jsx-uses-react': 'off', // Newer versions of React (that we're on, don't need to import)
       'react/react-in-jsx-scope': 'off', // Newer versions of React (that we're on, don't need to import)
       'react/jsx-pascal-case': ['error', { allowNamespace: true }],
+      'react/prefer-es6-class': ['error', 'always'],
+      'react/no-access-state-in-setstate': 'error',
+      'react/no-this-in-sfc': 'error',
+      'react/function-component-definition': ['error', { namedComponents: 'function-declaration' }],
       'prefer-const': 'off', // https://www.epicweb.dev/talks/let-me-be
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'], // https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c
       'prefer-template': 'error',
