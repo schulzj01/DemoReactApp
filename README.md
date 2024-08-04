@@ -1,4 +1,9 @@
-# NWS Connect Demo UI
+# NWS Connect Template UI
+
+This is a baseline configuration with a couple of example components to kickstart UI development with a set of team standards
+
+&nbsp;
+&nbsp;
 
 ## Installing the Application
 
@@ -8,6 +13,9 @@ The install command will download all packages contained in package.json to your
 
 This assumes you have npm/node.js installed to your local machine. You can [install node](https://nodejs.org/en/download) (if you have admin rights), or add [pre-built binaries](https://nodejs.org/en/download/prebuilt-binaries) to your user profile, and configure your environment variables if needed.
 
+&nbsp;
+&nbsp;
+
 ## Running the Application for Development
 
 Currently Vite (pronounced Veet) is used for quick development. To run the application in development mode, you can run the below command, or run it from your NPM Scripts section of your IDE
@@ -16,9 +24,15 @@ Currently Vite (pronounced Veet) is used for quick development. To run the appli
 
 Upon application development startup, any packages added since the last package upate should be downloaded and installed automatically. Your browser will then auto open to http://localhost:5173/
 
+&nbsp;
+&nbsp;
+
 ## Building the Application
 
 @todo
+
+&nbsp;
+&nbsp;
 
 ## Folder Structure
 
@@ -41,13 +55,19 @@ Project folder structure can be quite subjective. This is a recommended starting
 | src/utilities        | Shared utility functions that would be leveraged throughout the application                                                                                                  |
 | tests                | End to End tests for the entire application - Tests for individual features or components should be colocated with them                                                      |
 
+&nbsp;
+&nbsp;
+
 ## UI Styling
 
 This application is set up with TailwindCSS as the styling solution. Tailwind is a utility approach to CSS, and is one the most popular libraries for styling. NWS Connect will also be using its own custom component library using React Aria as its headless components. Atomic components included in the application, should be developed in the Atmophere Design System, and imported into this application. Note that the componentLibrary folder currently available here will eventually be moved into its own repo, installed separately into various applications using npm install, and is only here for example purposes.
 
 It is recommended to install certain Tailwind extensions to aid in styling (See Recommended IDE Settings )
 
-## Specific Tools
+&nbsp;
+&nbsp;
+
+## Recommended Libraries/Tools
 
 While the tools used in various applications will grow and diverge differently, the following tools are included here as recommendations to use for their specific use case
 
@@ -69,6 +89,9 @@ Browser navigation in React is handled by a "Router". A Router's role is to hand
 
 Currently the application is set up to use a mock service to allow developers to test out API configurations before they're available to be served up in development. This may need to be removed in the future, and is truly here to show how / why it could be done (to speed up development)
 
+&nbsp;
+&nbsp;
+
 ## Testing the Application
 
 The application is using Playwright as a test runner. Playwright can run unit, integration, and end-to-end tests. Testing strategies for different tests, browsers, devices, etc can be configured int he `playwrite.config.ts` file. If this is the first time using playwright, you may need to run the `npx playwright install` command to download additional playwright tools.
@@ -86,9 +109,15 @@ Unit tests files for individual components should be included directly in the sa
 
 End-to-end tests should be captured in the `/tests` directory. This allows them to be run separately if desired.
 
+&nbsp;
+&nbsp;
+
 # Code Standards
 
 Code standards are enforced using a variety of different tools. Information on each of these tools are explained below. Pre-commit hooks that ensure that these tools are run are configured by Husky.
+
+&nbsp;
+&nbsp;
 
 ## Typescript
 
@@ -111,6 +140,9 @@ type Partner = Person & {
 };
 ```
 
+&nbsp;
+&nbsp;
+
 ## Linting Code
 
 Code practices need to be consistent across team members. Linting is a automated process that enforces that consistency across a set of team defined standards. Any changes to linting rules need to be coordinated with the team. Linting rules should not hinder the developer experience, but are designed to catch code smells early during the process. Linting rules are configured in eslint.config.js
@@ -122,6 +154,9 @@ Some IDEs like VS Code also have extensions for ESLint (see Recommended IDE Sett
 ### Pre-commit hooks
 
 Linting is automatically run with the fix flag on any staged files during a commit. Code should not be commited to the repository if it does not pass linting checks, and this check ensures that happens.
+
+&nbsp;
+&nbsp;
 
 ## Styling Code
 
@@ -140,6 +175,9 @@ Reference the below links if you have questions on how best to style your code.
 Tabs or spaces?!? There will always be disagreements on how best to format code. Tastes are individualized. However, it's important to keep a consistent format between developers. Prettier is one of the most popular code formatters in use today, and is strongly opinionated (for good reason). Prettifier will automatically format your code on save. Prettier is also run during a pre-commit hook. The `.prettier.config.js` file controls any prettier overrides settings for the team. Any changes to this file should be coordinated with the entire development team. The .prettierignore file can be configured with files or file types that prettier should ignore.
 
 Prettifying code works best when it is configured in your IDE to be autoformatted on save, however you may prefer to disable this if you only wan the reformatting to be done on commit. Some IDEs like VS Code also have extensions for Prettier (see Recommended IDE Settings below)
+
+&nbsp;
+&nbsp;
 
 ## Code Documentation
 
@@ -169,6 +207,9 @@ function filterOnPropertyValue(myArray: { myProp: string }[], myProp: string, my
 ```
 
 More information on JSDoc can be found here: [Getting Started with JSDoc3](https://jsdoc.app/about-getting-started)
+
+&nbsp;
+&nbsp;
 
 ## Recommended IDE Settings
 
