@@ -182,7 +182,7 @@ More information on JSDoc can be found here: [Getting Started with JSDoc3](https
 
 ### Visual Studio (VS) Code
 
-This IDE is one of the few that can be installed on your local machine without having full administrative rights.
+This IDE is one that can be installed on your local machine without having full administrative rights. Visit the [Setup Page](https://code.visualstudio.com/docs/setup/windows) for install instructions .
 
 #### Recommended settings.json Properties
 
@@ -190,15 +190,15 @@ These recommended settings are captured in the `.vscode/settings.json` part of t
 
 #### Recommended Extensions
 
-VS Code allows developers to share recommeneded extensions.  You can find this by opening up the extensions pane on the left hand side of your IDE.  Recommended team plugins are included in this repo via the included `.vscode/extensions.json` file
+VS Code allows developers to share recommeneded extensions.  You can find this by opening up the extensions pane on the left hand side of your IDE, and expanding the Recommended Workspace option.  Recommended team plugins are included in this repo via the included `.vscode/extensions.json` file, they're also included below
 
 - Prettier
 - ESLint
 - Docker
 - IntelliCode
 - Tailwind CSS Intellisense
-- Tailwind Fold @todo -> Add too extensions.json file
-- Tailwind Documentation @todo -> Add too extensions.json file
+- Tailwind Fold
+- Tailwind Documentation
 - Playwright Test for VSCode
 - Gitlab Workflow
 

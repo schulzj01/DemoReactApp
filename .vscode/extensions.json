@@ -6,6 +6,8 @@
     "ms-playwright.playwright",
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
-    "gitlab.gitlab-workflow"
+    "gitlab.gitlab-workflow",
+    "stivo.tailwind-fold",
+    "alfredbirk.tailwind-documentation"
   ]
 }
