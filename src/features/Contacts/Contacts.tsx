@@ -11,7 +11,7 @@ import ContactTable from './components/ContactTable';
 import Map from './components/Map';
 
 // Extend our person object with properties we can use to know whether or not the data is selected or displayed
-type SelectablePerson = Person & {
+export type SelectablePerson = Person & {
   isSelected: boolean;
   isDisplayed: boolean;
 };
@@ -24,7 +24,7 @@ type RowData = {
 function Contacts() {
   const [persons, setPersons] = useState<SelectablePerson[]>([]);
 
-  const handleTableChange = (rowData: RowData) => {
+  const handleTableChange = (rowData: RowData): void => {
     setPersons((prevPersons) => {
       let updatePersons = [...prevPersons];
       updatePersons.forEach((person: SelectablePerson) => {

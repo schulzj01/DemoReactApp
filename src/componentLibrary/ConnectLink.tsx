@@ -1,9 +1,7 @@
 import { Link as AriaLink, LinkProps as AriaLinkProps, composeRenderProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 
-type LinkProps = {
-  variant?: 'primary' | 'secondary';
-} & AriaLinkProps;
+type LinkProps = {} & AriaLinkProps;
 
 const styles = tv({
   base: 'rounded underline transition disabled:cursor-default disabled:no-underline forced-colors:disabled:text-[GrayText]',
@@ -19,12 +17,11 @@ const styles = tv({
 });
 
 export function ConnectLink(props: LinkProps) {
+  console.log(props);
   return (
     <AriaLink
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        styles({ ...renderProps, className, variant: props.variant }),
-      )}
+      className={composeRenderProps(props.className, (className, renderProps) => styles({ ...renderProps, className }))}
     />
   );
 }

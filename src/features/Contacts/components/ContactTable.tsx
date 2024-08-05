@@ -1,9 +1,10 @@
 import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef, type MRT_RowSelectionState } from 'material-react-table';
 import { useEffect, useMemo, useState } from 'react';
-
+import { type SelectablePerson } from '../Contacts';
+//import { RowData } from type;
 type Props = {
-  persons: object[];
-  // handleTableChange: ReturnType[]>;
+  persons: SelectablePerson[];
+  handleTableChange: ReturnType<void>;
 };
 
 function ContactTable({ persons, handleTableChange }: Props) {
@@ -12,6 +13,7 @@ function ContactTable({ persons, handleTableChange }: Props) {
 
   // The use of .toString here seems sus, but the reasoning is because filtering has issues if the string value is null.
   // See https://github.com/KevinVandy/material-react-table/issues/315
+
   const columns = useMemo<MRT_ColumnDef<any>[]>(
     () => [
       {
@@ -77,6 +79,7 @@ function ContactTable({ persons, handleTableChange }: Props) {
       displayed: [],
     };
     table.getRowModel().rows.forEach((row) => {
+      console.log(row);
       if (row.getIsSelected()) rowData.selected.push(row.original.id);
       rowData.displayed.push(row.original.id);
     });

@@ -1,3 +1,10 @@
+/**
+ *
+ *  An example navigation component
+ *
+ */
+import { ConnectLink } from 'componentLibrary/ConnectLink';
+
 function NavHeaderBar() {
   return (
     <nav className='border-gray-200 bg-white dark:bg-gray-900'>
@@ -9,9 +16,9 @@ function NavHeaderBar() {
           <img
             src='https://flowbite.com/docs/images/logo.svg'
             className='h-8'
-            alt='Flowbite Logo'
+            alt='Header Logo'
           />
-          <span className='self-center whitespace-nowrap text-2xl font-semibold dark:text-white'>Flowbite</span>
+          <span className='self-center whitespace-nowrap text-2xl font-semibold dark:text-white'>Example Header</span>
         </a>
         <button
           data-collapse-toggle='navbar-default'
@@ -45,13 +52,13 @@ function NavHeaderBar() {
             className={`mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-900`}
           >
             <li>
-              <a
+              <ConnectLink
                 href='#'
                 className={`block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700 dark:text-white md:dark:text-blue-500`}
                 aria-current='page'
               >
-                Home
-              </a>
+                Link 1
+              </ConnectLink>
             </li>
             <li>
               <a

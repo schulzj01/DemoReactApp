@@ -3,11 +3,14 @@
  * An example button of what would in the future become part of our design system and component library
  *
  */
-import { composeRenderProps, Button as RACButton, ButtonProps as RACButtonProps } from 'react-aria-components';
+import { Button as AriaButton, ButtonProps as AriaButtonProps, composeRenderProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
+import { ConnectLink } from './ConnectLink';
 
-export type ButtonProps = RACButtonProps & {
+export type ButtonProps = AriaButtonProps & {
   variant?: 'primary' | 'secondary' | 'destructive' | 'icon';
+  as?: 'link';
+  href?: string;
 };
 
 /**
@@ -32,12 +35,18 @@ let button = tv({
 });
 
 export function ConnectButton(props: ButtonProps) {
+  //If our button is a link, apply the same prefferred styling, but change the component to use a link instead
+  let SpecificButton = AriaButton;
+  let className = props.className;
+  if (props.as == 'link') {
+    SpecificButton = ConnectLink;
+    className = `${className} inline-block`;
+  }
+
   return (
-    <RACButton
+    <SpecificButton
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        button({ ...renderProps, variant: props.variant, className }),
-      )}
+      className={composeRenderProps(className, (className, renderProps) => button({ ...renderProps, variant: props.variant, className }))}
     />
   );
 }
