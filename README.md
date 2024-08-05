@@ -29,31 +29,37 @@ Upon application development startup, any packages added since the last package 
 
 ## Building the Application
 
-@todo
+`@todo`
+
+Much of this may be dependent on how NWS Connect rolls their application into CI/CD.
+
+https://vitejs.dev/guide/build.html
+
+`@todo`
 
 &nbsp;
 &nbsp;
 
 ## Folder Structure
 
-Project folder structure can be quite subjective. This is a recommended starting point for the team as well as a possible organization. That being said, there are [always better ways](https://react-file-structure.surge.sh/).
+Project folder structure can be quite subjective. This is a recommended starting point for the team as well as a possible organization. This structure model is built similar to Bulletproof React's [recommended folder structure](https://github.com/alan2207/bulletproof-react/blob/master/docs/assets/unidirectional-codebase.png). This was chosen over other methodologies like "feature sliced design" because it is simpler. That being said, there are [always better ways](https://react-file-structure.surge.sh/).
 
-| Folder               | Purpose                                                                                                                                                                      |
-| :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| .husky               | Configuration information for commit hooks                                                                                                                                   |
-| dist                 | The location of the latest built distribution of this application.                                                                                                           |
-| node_modules         | Dynamic directory for package management. This is .gitignored.                                                                                                               |
-| public               |                                                                                                                                                                              |
-| src/app              | Application pieces dealing with the global application                                                                                                                       |
-| src/app/routes       | Configuration on routing the browser to different pages inside the application                                                                                               |
-| src/assets           | Static files that can be served up as is (.e.g images)                                                                                                                       |
-| src/componentLibrary | A placeholder for the NWS Connect Atmosphere Design System                                                                                                                   |
-| src/components       | Molocule or smaller level components that are not included in the component library and are shared across features                                                           |
-| src/features         | Full featured pieces of the applications built from components. This folder should be substructed out with feature specific pieces (components, api, hooks, utils, etc )     |
-| src/mocks            | Tooling to allow mocking of API or other data that may not be available during early development                                                                             |
-| src/types            | A container to include type information for broadly shared objects. Type information for specific components that are not needed elsewhere should be kept with the component |
-| src/utilities        | Shared utility functions that would be leveraged throughout the application                                                                                                  |
-| tests                | End to End tests for the entire application - Tests for individual features or components should be colocated with them                                                      |
+| Folder               | Purpose                                                                                                                                                                                            |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| .husky               | Configuration information for commit hooks                                                                                                                                                         |
+| dist                 | The location of the latest built distribution of this application.                                                                                                                                 |
+| node_modules         | Dynamic directory for package management. It is created and populated during the `npm install` command. This directory can be wiped if problems arise with packages. This is .gitignored.          |
+| public               | Assets included in the build whose filename cannot be changed and will not be imported into the distributable bundle [More Info](https://vitejs.dev/guide/assets.html#the-public-directory)        |
+| src/app              | Application pieces dealing with the global application                                                                                                                                             |
+| src/app/routes       | Configuration on routing the browser to different pages inside the application                                                                                                                     |
+| src/assets           | Static files that may be packaged as part of a bundle. Note this is distinct from the public directory (.e.g images)                                                                               |
+| src/componentLibrary | A placeholder for the NWS Connect Atmosphere Design System                                                                                                                                         |
+| src/components       | Molocule or smaller level components that are not included in the component library and are shared across features                                                                                 |
+| src/features         | Full featured pieces of the applications built from components. This folder can be substructed out with feature specific pieces grouped by their own folders (components, api, hooks, utils, etc ) |
+| src/mocks            | Tooling to allow mocking of API or other data that may not be available during early development                                                                                                   |
+| src/types            | A container to include type information for broadly shared objects. Type information for specific components that are not needed elsewhere should be kept with the component                       |
+| src/utilities        | Shared utility functions that would be leveraged throughout the application                                                                                                                        |
+| tests                | End to End tests for the entire application - Tests for individual features or components should be colocated with those specific components and not included here                                 |
 
 &nbsp;
 &nbsp;
@@ -85,9 +91,17 @@ Maintaining proper state is an important piece of React. When state of a compone
 
 Browser navigation in React is handled by a "Router". A Router's role is to handle navigation in an application directly instead of fully ceding that control to the browser itself. This allows things like Single Page Apps (SPAs) to have different URLs shown in the browser address bar even if the user never leaves the application. This application uses "React Router" as its Router of choice. This router is also connected to React-Aria so that linking in the components is properly handled in an accessible way.
 
+Modules loaded with the router should leverage strategies like lazy loading of pages to speed up the user's initial load time.
+
 ### Mock Service Worker
 
 Currently the application is set up to use a mock service to allow developers to test out API configurations before they're available to be served up in development. This may need to be removed in the future, and is truly here to show how / why it could be done (to speed up development)
+
+### Tanstack Query (React Query)
+
+Ensure local client state is kept in sync with server state is a critical piece to ensure the correct data is saved during API calls. While you can manage all of this as a development team, with complicated queries this may be hard to manage. Tools like Tanstack Query, formerly known as 'React Query' help developers manage this state easier. ESLint rules are also installed that help to aid development using this tool.
+
+**Tanstack Query Resources** [Developer's Guide](https://tanstack.com/query/latest/docs/framework/react/guides/important-defaults) | [API Reference](https://tanstack.com/query/latest/docs/reference/QueryClient)
 
 &nbsp;
 &nbsp;
@@ -153,11 +167,11 @@ Code practices need to be consistent across team members. Linting is a automated
 
 Linting can be run manually using the `npx elsint` command or using the `lint` command in your IDE. In addition, the IDE should highlight linting issues it recognizes as you code. Many linting checks can be automatically fixed by the linter directly by running it as `npx eslint --fix`, or by choosing the `lint:fix` command in your IDE.
 
-Some IDEs like VS Code also have extensions for ESLint (see Recommended IDE Settings below)
+Some IDEs like VS Code also have extensions for ESLint (see Recommended IDE Settings below) to allow you to lint your code as you type. Configuration for linting rules in this project is found in `eslint.config.js`
 
 ### Pre-commit hooks
 
-Linting is automatically run with the fix flag on any staged files during a commit. Code should not be commited to the repository if it does not pass linting checks, and this check ensures that happens.
+Linting is automatically run with the fix flag on any staged files during a commit. Code should not be commited to the repository if it does not pass linting checks, and this check ensures that happens. Husky is the name of the tool that manages these hooks. It should be automatically installed the first time you run the application.
 
 &nbsp;
 &nbsp;

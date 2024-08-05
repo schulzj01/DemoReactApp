@@ -1,4 +1,5 @@
 import pluginJs from '@eslint/js';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
@@ -12,6 +13,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: { globals: globals.browser },
